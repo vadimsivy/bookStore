@@ -1,35 +1,39 @@
 import {useEffect, useState} from "react"
 import Book from "./book/Book"
 import styles from "./Books.module.scss"
+import {IBook} from "../../interfaces/book/book";
+import {fetchBooksThunks} from "../../store/thunks/fetchBooksThunks";
+import useAppDispatch from "../../hooks/useAppDispatch";
+import useAppSelector from "../../hooks/useAppSelector";
+import Spinner from "../spinner/Spinner";
 
 const Books = () => {
-  const [books, setBooks] = useState([])
-  const [loading, setLoading] = useState(false)
+  const dispatch = useAppDispatch()
+  const {books, error, loading} = useAppSelector((state) => state.booksReducer)
 
   useEffect(() => {
-    (async () => {
-      setLoading(true)
+    dispatch(
+      fetchBooksThunks()
+    )
+  }, [dispatch])
 
-      const res = await fetch('https://api.itbook.store/1.0/books/9781098103828')
-
-
-      const response = await fetch('https://api.itbook.store/1.0/new')
-      const result = await response.json()
-      console.log(result)
-      setLoading(false)
-      setBooks(result.books ?? [])
-    })()
-  },[])
+  if (error) {
+    return (
+      <h1>{error}</h1>
+    )
+  }
 
   if (loading) {
     return (
-      <h1>Loading...</h1>
+      <div className={styles.spinner}>
+        <Spinner/>
+      </div>
     )
   }
 
   return (
     <div className={styles.books}>
-      {books.map((book: any) =>
+      {books.map((book) =>
         <Book key={book.isbn13} {...book}/>
       )}
     </div>

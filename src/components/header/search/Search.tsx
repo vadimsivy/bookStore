@@ -9,7 +9,7 @@ const Search = () => {
         className={styles.input}
       />
 
-      <Icon name={'filter'} strokeWidth={.1}/>
+      <Icon name={'search'} strokeWidth={1.5}/>
     </div>
   )
 }

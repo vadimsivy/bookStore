@@ -1,9 +1,25 @@
 html {
-  color: var(--color-text);
+  color-scheme: var(--scheme);
+  color: var(--color-text-theme);
+  background-color: var( --color-background-theme);
 }
 
 :root {
   --color-text: black;
+  --color-white: #fff;
   --color-lightgray: #E7E7E7;
   --color-lightblue: #D7E4FD;
+
+
+}
+:root[data-theme="light"] {
+  --scheme: light;
+  --color-text-theme: var(--color-text);
+  --color-background-theme: var(--color-white);
+}
+
+:root[data-theme="dark"] {
+  --scheme: dark;
+  --color-text-theme: var(--color-white);
+  --color-background-theme: var(--color-text);
 }
