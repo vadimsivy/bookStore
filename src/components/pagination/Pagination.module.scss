@@ -1,0 +1,36 @@
+.pagination {
+  margin: 32px 0;
+  padding-top: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 32px;
+
+  border-top: 1px solid var(--color-lightgray);
+
+  a {
+    text-decoration: none;
+  }
+
+  &__links {
+    display: flex;
+    column-gap: 32px;
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    color: var(--color-gray);
+  }
+}
+
+.link {
+  color: var(--color-gray);
+}
+
+.active {
+  cursor: none;
+  color: var(--color-text)
+}

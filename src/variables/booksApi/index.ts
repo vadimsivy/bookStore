@@ -1,5 +1,9 @@
-const BASE_URL_API_BOOKSTORE: string = 'https://api.itbook.store/1.0/new'
+const BASE_URL_API_BOOKSTORE: string = 'https://api.itbook.store/1.0'
+const ENDPOINT_NEW_RELEASE_API_BOOKSTORE = '/new'
+const ENDPOINT_SEARCH_API_BOOKSTORE = '/search'
 
 export {
   BASE_URL_API_BOOKSTORE,
+  ENDPOINT_NEW_RELEASE_API_BOOKSTORE,
+  ENDPOINT_SEARCH_API_BOOKSTORE,
 }

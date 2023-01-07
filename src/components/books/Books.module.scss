@@ -1,9 +1,11 @@
 .books{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  margin-top: 16px;
+    margin-top: 16px;
+  &__items{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+  }
 }
 .spinner {
   margin-top: 30%;

@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {BooksThunkPayloadAction,IInitialState} from "../../interfaces/store/slices/booksSlice";
-import {fetchBooksThunks} from "../thunks/fetchBooksThunks";
+import {fetchBooksSearchThunk, fetchBooksThunks} from "../thunks/fetchBooksThunks"
+import {BooksThunkPayloadAction,IInitialState} from "../../interfaces/store/slices/booksSlice"
 
 
 const initialState:IInitialState = {
@@ -27,6 +27,21 @@ const booksSlice = createSlice({
     })
 
     builder.addCase(fetchBooksThunks.rejected, (state: IInitialState, action: PayloadAction<any>) => {
+      state.loading = false
+      state.error = action.payload.message
+    })
+
+    builder.addCase(fetchBooksSearchThunk.pending, (state: IInitialState) => {
+      state.loading = true
+    })
+
+    builder.addCase(fetchBooksSearchThunk.fulfilled, (state: IInitialState, action: PayloadAction<BooksThunkPayloadAction>) => {
+      state.loading = false
+      state.books = action.payload.books
+      state.total = Number(action.payload.total)
+    })
+
+    builder.addCase(fetchBooksSearchThunk.rejected, (state: IInitialState, action: PayloadAction<any>) => {
       state.loading = false
       state.error = action.payload.message
     })
