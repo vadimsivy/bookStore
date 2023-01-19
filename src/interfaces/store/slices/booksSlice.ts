@@ -1,6 +1,6 @@
 import {IBook} from "../../book/book"
 
-interface IInitialState {
+interface IBooksInitialState {
   books: IBook[]
   loading: Boolean
   total: number
@@ -14,6 +14,6 @@ type BooksThunkPayloadAction = {
 }
 
 export type {
-  IInitialState,
+  IBooksInitialState,
   BooksThunkPayloadAction,
 }

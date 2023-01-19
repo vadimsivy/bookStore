@@ -11,6 +11,7 @@ import ErrorBoundary from "./components/errorBoundary/ErrorBoundary"
 
 import "./styles/reset.scss"
 import "./styles/global.scss"
+import SearchPage from "./pages/SearchPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Routes>
             <Route path={'/'} element={<Home/>}/>
             <Route path={'*'} element={<Page404/>}/>
+            <Route path={'/search/:input/:page'} element={<SearchPage/>}/>
           </Routes>
         </Provider>
         </ThemeProvider>

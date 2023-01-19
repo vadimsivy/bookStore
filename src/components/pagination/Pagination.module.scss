@@ -26,6 +26,12 @@
   }
 }
 
+.groupPagination {
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+}
+
 .link {
   color: var(--color-gray);
 }
