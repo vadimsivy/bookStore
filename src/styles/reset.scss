@@ -14,6 +14,11 @@ html {
 body {
   font-size: 1.6rem;
 }
+button {
+  font-size: 100%;
+  font-family: inherit;
+  text-transform: inherit;
+}
 
 input {
   font-size: inherit;
@@ -22,4 +27,19 @@ input {
 
 ul li {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-gray-200);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-500);
+  border-radius: 8px;
 }

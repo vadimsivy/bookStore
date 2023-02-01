@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {fetchBooksThunks} from "../thunks/fetchBooksThunks"
 import {BooksThunkPayloadAction,IBooksInitialState} from "../../interfaces/store/slices/booksSlice"
+import {fetchBooksThunks} from "../thunks/fetchBooksThunks"
 
 
 const initialState:IBooksInitialState = {
@@ -21,9 +21,8 @@ const booksSearchSlice = createSlice({
 
     builder.addCase(fetchBooksThunks.fulfilled, (state: IBooksInitialState, action: PayloadAction<BooksThunkPayloadAction>) => {
       state.loading = false
-      state.books = action.payload.books
+      state.books = action.payload.books ?? []
       state.total = Number(action.payload.total)
-
     })
 
     builder.addCase(fetchBooksThunks.rejected, (state: IBooksInitialState, action: PayloadAction<any>) => {

@@ -1,10 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit"
-import {
-  BASE_URL_API_BOOKSTORE,
-  ENDPOINT_NEW_RELEASE_API_BOOKSTORE,
-} from "../../variables/booksApi"
+import {BASE_URL_API_BOOKSTORE, ENDPOINT_NEW_RELEASE_API_BOOKSTORE} from "../../variables/booksApi"
 
-const fetchBooksThunks = createAsyncThunk(
+export const fetchBooksThunks = createAsyncThunk(
   'books',
   async (params, thunkAPI) => {
     try {
@@ -15,7 +12,3 @@ const fetchBooksThunks = createAsyncThunk(
     }
   }
 )
-
-export {
-  fetchBooksThunks,
-}

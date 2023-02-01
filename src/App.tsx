@@ -11,7 +11,9 @@ import ErrorBoundary from "./components/errorBoundary/ErrorBoundary"
 
 import "./styles/reset.scss"
 import "./styles/global.scss"
-import SearchPage from "./pages/SearchPage";
+import SearchPage from "./pages/SearchPage"
+import Favorites from "./pages/Favorites"
+import BookDescription from "./pages/BookDescription";
 
 const App = () => {
   return (
@@ -24,6 +26,9 @@ const App = () => {
             <Route path={'/'} element={<Home/>}/>
             <Route path={'*'} element={<Page404/>}/>
             <Route path={'/search/:input/:page'} element={<SearchPage/>}/>
+            <Route path={'/favorites'} element={<Favorites/>}/>
+            <Route path={'/book-description/:id'} element={<BookDescription/>}/>
+
           </Routes>
         </Provider>
         </ThemeProvider>

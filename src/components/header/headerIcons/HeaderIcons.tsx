@@ -1,6 +1,7 @@
 import Icon from "../../icon/Icon"
 import styles from "./HeaderIcons.module.scss"
-import useTheme from "../../../hooks/useTheme";
+import useTheme from "../../../hooks/useTheme"
+import {Link} from "react-router-dom"
 
 
 const HeaderIcons = () => {
@@ -13,13 +14,19 @@ const HeaderIcons = () => {
               strokeWidth={1.5}
               className={styles.icon}/>
       </div>
-      <div>
-        <Icon name={'favorite'} strokeWidth={1.5} className={styles.icon}/>
+      <div className={styles.parentDot}>
+        <Link to={'/favorites'}>
+          <Icon name={'favorite'}
+                strokeWidth={1.5}
+                className={styles.icon}/>
+          <span className={styles.dot}></span>
+        </Link>
       </div>
-      <div>
+      <div className={styles.parentDot}>
         <Icon name={'basket'} strokeWidth={1.5} className={styles.icon}/>
+        <span className={styles.dot}></span>
       </div>
-      <div>
+      <div className={styles.profileUser}>
         <Icon name={'user'} strokeWidth={1.5} className={styles.icon}/>
       </div>
     </div>

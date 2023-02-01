@@ -1,12 +1,15 @@
-import {useEffect, useState} from "react"
-import Book from "./book/Book"
-import styles from "./Books.module.scss"
+import {useEffect} from "react"
 import {useSearchParams} from "react-router-dom"
-import {fetchBooksThunks} from "../../store/thunks/fetchBooksThunks"
 import useAppDispatch from "../../hooks/useAppDispatch"
 import useAppSelector from "../../hooks/useAppSelector"
+
 import Spinner from "../spinner/Spinner"
 import Pagination from "../pagination/Pagination"
+import Book from "./book/Book"
+
+import {fetchBooksThunks} from "../../store/thunks/fetchBooksThunks"
+
+import styles from "./Books.module.scss"
 
 const Books = () => {
   const [params] = useSearchParams()
@@ -32,6 +35,8 @@ const Books = () => {
       </div>
     )
   }
+
+  console.log(books)
 
   if (!books.length) {
     return <div>Results not found</div>

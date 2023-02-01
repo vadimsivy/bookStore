@@ -7,6 +7,33 @@ interface IBooksInitialState {
   error: string | null
 }
 
+interface IBooksDescriptionStatePdf {
+  [p: string]: string
+}
+
+interface IBookDescription {
+  title: string
+  subtitle: string
+  authors: string
+  publisher: string
+  isbn10: string
+  isbn13: string
+  pages: string
+  year: string
+  rating: string
+  desc:  string
+  price: number
+  image: string
+  url: string
+  pdf: IBooksDescriptionStatePdf
+}
+
+interface IBooksDescriptionState {
+  book: IBookDescription
+  error: string
+  loading: boolean
+}
+
 type BooksThunkPayloadAction = {
   error: string
   total: string
@@ -16,4 +43,6 @@ type BooksThunkPayloadAction = {
 export type {
   IBooksInitialState,
   BooksThunkPayloadAction,
+  IBooksDescriptionState,
+  IBookDescription,
 }

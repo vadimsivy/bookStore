@@ -1,0 +1,44 @@
+.details {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  margin-bottom: 12px;
+  text-shadow: #000000 1px 10px 10px;
+
+
+  p {
+    color: var(--color-gray);
+  }
+}
+
+.buttonDetails {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.buttonAddToCart {
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-width: 450px;
+  height: 40px;
+  color: var(--color-white);
+  background-color: var(--color-darkblue);
+  border: 1px solid var(--color-gray);
+  border-radius: 4px;
+  box-shadow: 0 4px 4px 0 #00000040;
+}
+.starsRow {
+  display: flex;
+}
+.detailsHeader {
+
+  display: flex;
+  justify-content: space-between;
+}
+.borderTop {
+  border-top: 1px solid #E7E7E7;
+  padding-top: 16px;
+}
