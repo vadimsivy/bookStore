@@ -7,12 +7,10 @@
   padding: 0 16px;
   margin: 16px 0;
   h2 {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
     letter-spacing: 2px;
     padding-left: 16px;
     max-width: 450px;
+    font-size: 1.6rem;
   }
 
   &__poster {

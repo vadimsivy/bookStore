@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 16px 0;
+
+  color: var(--color-gray);
+  text-transform: none;
+  border-top: 1px solid var(--color-lightgray);}
+

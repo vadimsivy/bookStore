@@ -1,0 +1,93 @@
+.drop__layout {
+  position: fixed;
+  left: 0;
+  top: 89px;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  background-color: #c2d1dc4a;
+}
+
+.container {
+  width: 370px;
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  top: 89px;
+  padding: 40px;
+  background-color: var(--color-white);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: 467px) {
+    width: 100%;
+
+
+  }
+
+  &__signIn{
+    position: sticky;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: inherit;
+    color: var(--color-white);
+    background-color: var(--color-darkblue);
+    border: 1px solid var(--color-gray);
+    border-radius: 4px;
+  }
+
+  &__list {
+    margin-top: 100px;
+  }
+
+  li {
+    font-size: 5rem;
+    text-align: center;
+
+  }
+
+
+
+
+  &__border {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-lightgray);
+    width: 290px;
+
+
+  }
+
+  &__cancel {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    right: 24px;
+    top: 40px;
+    cursor: pointer;
+    &_basket {
+      margin-right: 24px;
+    }
+  }
+}
+.countFavorite{
+  display: block;
+  margin-left: 10px;
+  color: var(--color-light-red);
+  font-size: 2rem;
+}
+.container__list_count{
+
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+}

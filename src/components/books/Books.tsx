@@ -36,7 +36,7 @@ const Books = () => {
     )
   }
 
-  console.log(books)
+
 
   if (!books.length) {
     return <div>Results not found</div>

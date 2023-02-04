@@ -15,9 +15,27 @@ body {
   font-size: 1.6rem;
 }
 button {
+  margin: 0;
+  padding: 0;
+
+  width: auto;
+  overflow: visible;
+
+  border: none;
+  background: transparent;
+  cursor: pointer;
+
+  color: inherit;
   font-size: 100%;
   font-family: inherit;
   text-transform: inherit;
+
+  line-height: normal;
+
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  -webkit-appearance: none;
 }
 
 input {
@@ -32,6 +50,14 @@ ul li {
 a {
   text-decoration: none;
   color: inherit;
+}
+summary {
+  all: unset;
+}
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--color-lightgray);
 }
 ::-webkit-scrollbar {
   width: 6px;

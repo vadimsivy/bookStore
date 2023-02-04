@@ -7,6 +7,7 @@ import {getNextAndPrevPages} from "../../helpers/getNextAndPrevPages"
 import styles from "./Pagination.module.scss"
 
 import Icon from "../icon/Icon"
+import useViewport from "../../hooks/useViewport";
 
 const getSlicePages = (pages: number[], currentPage: number, slice: number): number[] => {
   const indexPage = pages.indexOf(currentPage)
@@ -30,18 +31,18 @@ const getSlicePages = (pages: number[], currentPage: number, slice: number): num
 const Pagination = ({currentPage, totalPages, input}: IPaginationProps) => {
   const isTotalPages = getTotalPages(totalPages)
   const {prevPage, nextPage} = getNextAndPrevPages(totalPages, currentPage)
-
+  const viewport = useViewport()
   if (totalPages === 1) {
     return <></>
   }
 
-  const slicePages = getSlicePages(isTotalPages, currentPage, 4)
+  const slicePages = getSlicePages(isTotalPages, currentPage, viewport.mobile ? 2 : 4)
 
   return (
     <div className={styles.pagination}>
       <Link to={`/search/${input}/${prevPage}`} className={styles.pagination__arrow}>
         <Icon name={'arrowLeft'} strokeWidth={1.5}/>
-        Prev
+        {viewport.mobile ? '' : 'Prev'}
       </Link>
 
       <div className={styles.groupPagination}>
@@ -88,7 +89,7 @@ const Pagination = ({currentPage, totalPages, input}: IPaginationProps) => {
       </div>
 
       <Link to={`/search/${input}/${nextPage}`} className={styles.pagination__arrow}>
-        Next
+        {viewport.mobile ? '' : 'Next'}
         <Icon name={'arrowRight'} strokeWidth={1.5}/>
       </Link>
     </div>

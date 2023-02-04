@@ -1,5 +1,6 @@
 import styles from "./BookForSearch.module.scss"
-import {IBook} from "../../../interfaces/book/book";
+import {IBook} from "../../../store/slices/types/favoriteBookType";
+
 
 const BookForSearch = ({title, image, isbn13, price, subtitle, url}: IBook) => {
 

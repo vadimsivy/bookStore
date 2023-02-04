@@ -10,6 +10,9 @@ import Layout from "../components/layout/Layout"
 import Pagination from "../components/pagination/Pagination"
 
 import styles from "../styles/pages/searchPage/container__searchPage.module.scss"
+import Footer from "../components/footer/Footer";
+import useViewport from "../hooks/useViewport";
+import Search from "../components/header/search/Search";
 
 const SearchPage = () => {
   const params = useParams()
@@ -25,11 +28,14 @@ const SearchPage = () => {
   }, [params])
 
   const totalPages = Math.ceil(total / 20)
-
+  const viewport = useViewport()
   return (
     <Layout title={'SearchPage'}>
-      <h1>{params.input} Search results</h1>
-        <div className={styles.container__searchPage}>
+      <div className={styles.container__search}>
+        {!viewport.laptop && <Search/>}
+      </div>
+      <h1 className={styles.container__tittle}>{params.input} Search results</h1>
+      <div className={styles.container__searchPage}>
         {
           books.map((book) =>
             <Book key={book.isbn13} {...book}/>
@@ -41,6 +47,7 @@ const SearchPage = () => {
         currentPage={Number(params.page ?? 1)}
         totalPages={totalPages}
       />
+      <Footer/>
     </Layout>
   )
 

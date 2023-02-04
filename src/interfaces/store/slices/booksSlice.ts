@@ -1,4 +1,5 @@
-import {IBook} from "../../book/book"
+import {IBook} from "../../../store/slices/types/favoriteBookType"
+
 
 interface IBooksInitialState {
   books: IBook[]
@@ -7,29 +8,26 @@ interface IBooksInitialState {
   error: string | null
 }
 
-interface IBooksDescriptionStatePdf {
-  [p: string]: string
-}
-
 interface IBookDescription {
-  title: string
-  subtitle: string
-  authors: string
-  publisher: string
-  isbn10: string
-  isbn13: string
-  pages: string
-  year: string
-  rating: string
-  desc:  string
-  price: number
-  image: string
-  url: string
-  pdf: IBooksDescriptionStatePdf
+  title: string,
+  year: string,
+  subtitle: string,
+  error: string,
+  desc: string,
+  authors: string,
+  isbn10: string,
+  isbn13: string,
+  pages: string,
+  url: string,
+  price: 0,
+  image: string,
+  rating: string,
+  publisher: string,
+  language: string,
 }
 
 interface IBooksDescriptionState {
-  book: IBookDescription
+  book: IBook
   error: string
   loading: boolean
 }

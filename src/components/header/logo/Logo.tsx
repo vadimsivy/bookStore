@@ -3,13 +3,15 @@ import {Link} from "react-router-dom"
 import {TProps} from "../../../interfaces/logo/logo"
 
 import styles from "./Logo.module.scss"
+import useViewport from "../../../hooks/useViewport";
 
-const Logo = ({width = 138, height = 29}: TProps) => {
+const Logo = () => {
+  const viewport = useViewport()
   return (
     <Link to={'/'} className={styles.text}>
       <svg xmlns="http://www.w3.org/2000/svg"
-           width={width}
-           height={height}
+           width={viewport.mobile ? 100 : 140}
+           height={viewport.mobile ? 30 : 40}
            viewBox="0 0 138 29"
            >
         <path d="M6.64 0.319998C8.90667 0.319998 10.56 0.853331 11.6 1.92C12.64 2.96 13.16 4.57333 13.16 6.76V7.76C13.16 10.64 12.2133 12.52 10.32 13.4C12.5067 14.2533 13.6 16.2533 13.6 19.4V21.68C13.6 23.84 13.0267 25.4933 11.88 26.64C10.76 27.76 9.10667 28.32 6.92 28.32H0V0.319998H6.64ZM6.36 15.72H4.4V24.32H6.92C7.69333 24.32 8.26667 24.12 8.64 23.72C9.01333 23.2933 9.2 22.5733 9.2 21.56V19.12C9.2 17.84 8.97333 16.96 8.52 16.48C8.09333 15.9733 7.37333 15.72 6.36 15.72ZM6.52 4.32H4.4V11.72H6.12C7 11.72 7.65333 11.4933 8.08 11.04C8.53333 10.5867 8.76 9.82666 8.76 8.76V7.2C8.76 5.28 8.01333 4.32 6.52 4.32Z" fill="currentColor"/>

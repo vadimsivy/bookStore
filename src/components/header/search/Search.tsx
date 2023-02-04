@@ -48,15 +48,24 @@ const Search = () => {
       }))
     }, 800)
   }
+  const handleClearInput = () => {
+    setInput('')
+  }
   return (
     <div className={styles.container}>
       <label className={styles.search} onClick={handleClick} ref={ref}>
         <input
+          value={input}
           placeholder={'Search'}
           className={styles.input}
           onChange={handleOnChange}
         />
-        <Icon name={'search'} strokeWidth={1.5}/>
+
+        {!input.length
+          ? <Icon name={'search'} strokeWidth={1.5}/>
+          : <Icon name={'cancel'} className={styles.container__cancel} strokeWidth={1.5} onClick={handleClearInput}/>
+        }
+
       </label>
       {showResults &&
         <div className={styles.results} >

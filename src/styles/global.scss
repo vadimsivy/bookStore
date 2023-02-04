@@ -17,6 +17,9 @@ button {
   --color-gray-200:  #f1f3f9;
   --color-gray-500:  #8f96a3;
   --color-red: #FC857F;
+  --color-button-dark: #00000040;
+  --color-light-purple: #F4EEFD;
+  --color-light-red: #FC857F;
 
 
 }
@@ -24,10 +27,16 @@ button {
   --scheme: light;
   --color-text-theme: var(--color-text);
   --color-background-theme: var(--color-white);
+  --color-rating: var(-color-text);
+  --color-shadow: var(--color-button-dark);
+  --color-subscribe: var(--color-light-purple);
 }
 
 :root[data-theme="dark"] {
   --scheme: dark;
   --color-text-theme: var(--color-white);
   --color-background-theme: var(--color-text);
+  --color-rating: var(--color-white);
+  --color-shadow: var(--color-white);
+  --color-subscribe: var(--color-button-dark)
 }

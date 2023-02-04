@@ -4,24 +4,26 @@ import {IBookDescription, IBooksDescriptionState} from "../../interfaces/store/s
 
 
 const initialState: IBooksDescriptionState = {
+  loading: false,
+  error: "",
   book: {
     title: '',
+    year: '',
     subtitle: '',
+    error: '',
+    desc: '',
     authors: '',
-    publisher: '',
     isbn10: '',
     isbn13: '',
     pages: '',
-    year: '',
-    rating: '',
-    desc:  '',
+    url: '',
     price: 0,
     image: '',
-    url: '',
-    pdf: {title: ''}
-  },
-  error: '',
-  loading: false,
+    rating: '',
+    publisher: '',
+    language: '',
+
+  }
 }
 
 const booksDescriptionSlice = createSlice({
