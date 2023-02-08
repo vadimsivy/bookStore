@@ -1,4 +1,4 @@
-import styles from "./header.module.scss"
+import styles from "./Header.module.scss"
 import Logo from "./logo/Logo"
 import Search from "./search/Search"
 import HeaderIcons from "./headerIcons/HeaderIcons"

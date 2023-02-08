@@ -1,9 +1,9 @@
 import Layout from "../components/layout/Layout"
 import Books from "../components/books/Books"
+import Subscribe from "../components/subscribe/Subscribe"
+import Footer from "../components/footer/Footer"
 
 import styles from "../styles/main/main.module.scss"
-import Subscribe from "../components/subscribe/Subscribe";
-import Footer from "../components/footer/Footer";
 
 const Home = () => {
   return (

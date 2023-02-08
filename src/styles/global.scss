@@ -27,9 +27,11 @@ button {
   --scheme: light;
   --color-text-theme: var(--color-text);
   --color-background-theme: var(--color-white);
-  --color-rating: var(-color-text);
+  --color-rating: var(--color-text);
   --color-shadow: var(--color-button-dark);
   --color-subscribe: var(--color-light-purple);
+  --color-btnCancel: var(--color-white);
+  --color-textCancel: var(--color-text);
 }
 
 :root[data-theme="dark"] {
@@ -38,5 +40,7 @@ button {
   --color-background-theme: var(--color-text);
   --color-rating: var(--color-white);
   --color-shadow: var(--color-white);
-  --color-subscribe: var(--color-button-dark)
+  --color-subscribe: var(--color-button-dark);
+  --color-btnCancel: var(--color-darkblue);
+  --color-textCancel: var(--color-white);
 }

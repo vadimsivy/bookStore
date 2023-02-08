@@ -66,13 +66,15 @@ const HeaderIcons = () => {
         </div>
 
         {viewport.laptop &&
-          <div className={styles.profileUser}>
-            <Icon
-              name={'user'}
-              strokeWidth={1.5}
-              className={styles.icon}
-            />
-          </div>
+          <Link to={'/auth'}>
+            <div className={styles.profileUser}>
+              <Icon
+                name={'user'}
+                strokeWidth={1.5}
+                className={styles.icon}
+              />
+            </div>
+          </Link>
         }
 
         {!viewport.laptop &&

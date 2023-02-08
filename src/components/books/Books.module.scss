@@ -1,3 +1,6 @@
+.container {
+  margin-bottom: 50px;
+}
 .books{
     margin-top: 16px;
   &__items{
@@ -5,9 +8,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 32px;
+    width: 100%;
+
   }
 }
 .spinner {
   margin-top: 30%;
   text-align: center;
+}
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

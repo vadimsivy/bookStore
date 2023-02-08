@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: space-between;
+  position: relative;
   width: 100%;
   margin: 50px 50px 50px 0;
   @media screen and (max-width: 468px) {
@@ -75,11 +76,12 @@
 
   &__Like {
     display: flex;
+    position: absolute;
+    top:-15px;
+    right: 0;
     align-content: center;
     align-items: center;
     justify-content: flex-end;
-    width: 20%;
-    height: inherit;
     @media screen and (max-width: 768px) {
       padding: 15px 10px;
       align-items: flex-start;

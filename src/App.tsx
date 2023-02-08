@@ -18,6 +18,8 @@ import SearchPage from "./pages/SearchPage"
 import Favorites from "./pages/Favorites"
 import BookDescription from "./pages/BookDescription"
 import Cart from "./pages/Cart"
+import Authorization from "./pages/Authorization";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -33,6 +35,8 @@ const App = () => {
                 <Route path={'/search/:input/:page'} element={<SearchPage/>}/>
                 <Route path={'/favorites'} element={<Favorites/>}/>
                 <Route path={'/cart'} element={<Cart/>}/>
+                <Route path={'/auth'} element={<Authorization/>}/>
+                <Route path={'/profile'} element={<Profile/>}/>
                 <Route path={'/book-description/:id'} element={<BookDescription/>}/>
               </Routes>
             </PersistGate>

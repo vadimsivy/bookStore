@@ -1,0 +1,28 @@
+@mixin Tabs {
+
+    display: flex;
+    padding-top: 50px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-lightgray);
+    margin-bottom: 30px;
+
+
+    &__tab {
+      width: 150px;
+      height: 50px;
+      text-align: center;
+      font-size: 1.8rem;
+
+      &:hover {
+        border-bottom: 3px solid var(--color-gray);
+      }
+    }
+
+    &__desc {
+      text-indent: 1.6rem;
+      font-size: 1.2rem;
+
+    }
+  }
+
+

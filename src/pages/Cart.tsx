@@ -1,15 +1,20 @@
 import useAppSelector from "../hooks/useAppSelector"
+import useAppDispatch from "../hooks/useAppDispatch"
+import useViewport from "../hooks/useViewport"
+
+import {decreaseCountCart, increaseCountCart, removeCart} from "../store/slices/booksCartSlice"
+
 import Layout from "../components/layout/Layout"
 import GoBack from "../components/goBack/GoBack"
-import {decreaseCountCart, increaseCountCart, removeCart} from "../store/slices/booksCartSlice"
-import useAppDispatch from "../hooks/useAppDispatch"
-import styles2 from "../components/books/book/Book.module.scss"
-import styles from "../styles/pages/cartPage/cartPage.module.scss"
 import Icon from "../components/icon/Icon"
-import Footer from "../components/footer/Footer";
+import Footer from "../components/footer/Footer"
+
+import styles from "../styles/pages/cartPage/cartPage.module.scss"
+import styles2 from "../components/books/book/Book.module.scss"
 
 const Cart = () => {
   const dispatch = useAppDispatch()
+  const viewPort = useViewport()
   const cart = useAppSelector((state) => state.booksCartReducer.cart)
 
   const countPrice = cart.reduce(
@@ -41,22 +46,30 @@ const Cart = () => {
               <button onClick={() => dispatch(increaseCountCart(cart.isbn13))}>
               <Icon name={'plus'}/>
               </button>
-
+              {viewPort.mobile && <div className={styles.container__mobile}>{cart.price}</div>}
             </div>
           </div>
 
-          <div className={styles.container__price}>{cart.price}</div>
-          <div onClick={() => dispatch(removeCart(cart.isbn13))}>
+          {!viewPort.mobile && <div className={styles.container__price}>{cart.price}</div>}
+
+          {!viewPort.mobile && <div className={styles.container__cancel} onClick={() => dispatch(removeCart(cart.isbn13))}>
             <Icon name={'cancel'}
                   strokeWidth={1.5}
             />
-          </div>
+          </div>}
+          {viewPort.mobile && <div className={styles.container__cancel_mob} onClick={() => dispatch(removeCart(cart.isbn13))}>
+            <Icon name={'cancel'}
+                  strokeWidth={1.5}
+                  fill={'white'}
+                  stroke={'white'}
+            />
+          </div>}
         </div>
         <hr/>
 
         </>
       )}
-          <div className={styles.floatRight}>
+      {cart.length ? <div className={styles.floatRight}>
           <div className={styles.priceBox}>
             <div className={styles.priceBox__flex}>Sum total <span>${countPrice.toFixed(2)}</span></div>
             <div className={styles.priceBox__flex}>VAT <span>$ {vat.toFixed(2)}</span></div>
@@ -64,8 +77,23 @@ const Cart = () => {
             <button className={styles.buttonCheckOut}>Check Out</button>
           </div>
 
-          </div>
-
+          </div> : ''}
+      {!cart.length &&
+        <div className={styles.empty}>
+          <span>Your Cart is Empty</span>
+        <Icon
+          name={'alert'}
+          width={36}
+          height={36}
+        />
+          <br/>
+          <span>Try add something!</span>
+          <Icon
+            name={'alien'}
+            width={36}
+            height={36}
+          />
+        </div>}
           <Footer/>
     </Layout>
   )

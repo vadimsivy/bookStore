@@ -4,15 +4,15 @@ import {fetchBooksSearchThunk} from "../store/thunks/fetchBooksSearchThunk"
 
 import useAppDispatch from "../hooks/useAppDispatch"
 import useAppSelector from "../hooks/useAppSelector"
+import useViewport from "../hooks/useViewport"
 
 import Book from "../components/books/book/Book"
 import Layout from "../components/layout/Layout"
 import Pagination from "../components/pagination/Pagination"
+import Footer from "../components/footer/Footer"
+import Search from "../components/header/search/Search"
 
 import styles from "../styles/pages/searchPage/container__searchPage.module.scss"
-import Footer from "../components/footer/Footer";
-import useViewport from "../hooks/useViewport";
-import Search from "../components/header/search/Search";
 
 const SearchPage = () => {
   const params = useParams()
