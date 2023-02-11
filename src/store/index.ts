@@ -10,6 +10,7 @@ import booksDescriptionReducer from "./slices/booksDescriptionSlice"
 import booksFavoritesReducer from "./slices/booksFavoritesSlice"
 import booksCartReducer from "./slices/booksCartSlice"
 import booksUsersReducer from "./slices/booksUsers"
+import booksUserReducer from "./slices/booksUser"
 
 const rootReducer = combineReducers({
   booksReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   booksFavoritesReducer,
   booksCartReducer,
   booksUsersReducer,
+  booksUserReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

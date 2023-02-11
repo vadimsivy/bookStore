@@ -2,11 +2,12 @@ import Icon from "../../icon/Icon"
 import styles from "./HeaderIcons.module.scss"
 import useTheme from "../../../hooks/useTheme"
 import {Link} from "react-router-dom"
-import useViewport from "../../../hooks/useViewport";
-import BurgerMenu from "../burgermenu/BurgerMenu";
-import {useState} from "react";
-import useScrollLock from "../../../hooks/useScrollLock";
-import useAppSelector from "../../../hooks/useAppSelector";
+import useViewport from "../../../hooks/useViewport"
+import BurgerMenu from "../burgermenu/BurgerMenu"
+import {useState} from "react"
+import useScrollLock from "../../../hooks/useScrollLock"
+import useAppSelector from "../../../hooks/useAppSelector"
+import useUser from "../../../hooks/useUser"
 
 
 const HeaderIcons = () => {
@@ -14,13 +15,20 @@ const HeaderIcons = () => {
   const cart = useAppSelector((state) => state.booksCartReducer.cart)
   const theme = useTheme()
   const viewport = useViewport()
-
+  const {loggedIn, logout} = useUser()
   const [isOpen, setIsOpen] = useState(false)
 
   useScrollLock(isOpen)
 
   const handleClickNav = () => {
     setIsOpen(!isOpen)
+  }
+  const handler = () => {
+    handleClickNav()
+    logout()
+  }
+  const handlerLapTop = () => {
+    logout()
   }
 
   return (
@@ -65,7 +73,7 @@ const HeaderIcons = () => {
           }
         </div>
 
-        {viewport.laptop &&
+        {viewport.laptop && !loggedIn &&
           <Link to={'/auth'}>
             <div className={styles.profileUser}>
               <Icon
@@ -76,7 +84,17 @@ const HeaderIcons = () => {
             </div>
           </Link>
         }
+        {viewport.laptop && loggedIn &&
+          <Link to={'/profile'} className={styles.margin}>
 
+            <Icon
+              name={'account'}
+              strokeWidth={1.5}
+              className={styles.icon}
+            />
+
+          </Link>
+        }
         {!viewport.laptop &&
           <div className={styles.profileUser}>
             <Icon
@@ -87,6 +105,14 @@ const HeaderIcons = () => {
             />
           </div>
         }
+        {viewport.laptop && loggedIn &&
+          <div className={styles.profileUser} onClick={handlerLapTop}>
+            <Icon
+            name={'logout'}
+            strokeWidth={1.5}
+            className={styles.icon}
+          />
+          </div>}
       </div>
 
       {isOpen &&

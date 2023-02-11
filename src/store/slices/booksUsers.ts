@@ -1,14 +1,18 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 
 interface IUser {
-  id: number,
-  name: string,
-  password: string,
-  email: string,
+  id: number
+  username: string
+  password: string
+  email: string
+}
+
+interface IUserLoggedIn extends IUser{
+  loggedIn: boolean
 }
 
 interface INewUser {
-  name: string
+  username: string
   password: string
   email: string
 }
@@ -32,7 +36,7 @@ const booksUsersSlice = createSlice({
         {id: state.users.length + 1, ...action.payload},
       ]
     },
-    editUser: (state: IBooksInitialState, action: PayloadAction<IUser>) => {
+    editUser: (state: IBooksInitialState, action: PayloadAction<IUserLoggedIn>) => {
       const users = state.users.filter((user) => user.id !== action.payload.id)
 
       state.users = [

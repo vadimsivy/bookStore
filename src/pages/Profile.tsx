@@ -4,8 +4,31 @@ import Footer from "../components/footer/Footer"
 
 import styles from "../styles/pages/authorizationPage/Authorization.module.scss"
 import styles2 from "../styles/pages/profilePage/profile.module.scss"
+import useUser from "../hooks/useUser"
+import useAppSelector from "../hooks/useAppSelector"
+import {useState} from "react"
+import {setUser} from "../store/slices/booksUser"
+import useAppDispatch from "../hooks/useAppDispatch"
 
 const Profile = () => {
+  const {id} = useUser()
+  const dispatch = useAppDispatch()
+
+  const users = useAppSelector((state) => state.booksUsersReducer.users)
+
+  const user = users.find((user) => user.id === id)
+
+  const [username, setUsername] = useState(user?.username)
+  const [email, setEmail] = useState(user?.email)
+  const [password, setPassword] = useState(user?.password)
+
+  const handleSave = () => {
+    dispatch(
+      //@ts-ignore
+      setUser({...user, username, email, password})
+    )
+  }
+
   return (
     <Layout title={'Profile'}>
       <GoBack/>
@@ -16,6 +39,8 @@ const Profile = () => {
       <div className={styles2.profile__NameEmail}>
         <label className={styles.form__subscribe__label}>Name
           <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             type={'text'}
             placeholder={'Your name'}
             autoCorrect={'off'}
@@ -24,6 +49,8 @@ const Profile = () => {
         </label>
         <label className={styles.form__subscribe__label}>Email
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type={'email'}
             placeholder={'Your email'}
             autoCorrect={'off'}
@@ -35,6 +62,8 @@ const Profile = () => {
         <div className={styles2.profile__newPassword}>
           <label className={styles.form__subscribe__label}>Password
           <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             type={'password'}
             placeholder={'Your password'}
             autoCorrect={'off'}
@@ -63,7 +92,7 @@ const Profile = () => {
       </div>
       <hr/>
       <div className={styles2.boxButtons}>
-        <button className={styles2.container__saveChanges}>Save Changes</button>
+        <button onClick={handleSave} className={styles2.container__saveChanges}>Save Changes</button>
         <button className={styles2.container__cancel}>Cancel</button>
       </div>
       <Footer/>
